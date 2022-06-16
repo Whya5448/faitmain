@@ -81,7 +81,24 @@ function createOrderNum() {
 /* 결제 ver 1 */
 function payment() {
 
-    /* 상품정보 */
+    /* 정보 */
+    const data = {
+        orderNumber: createOrderNum(),
+        receiverName: $("#buyerName").val(),
+        receiverPhone: $("#receiverPhone").val(),
+        receiverAddress1: $("#receiverAddress1").val(),
+        receiverAddress2: $("#receiverAddress2").val(),
+        receiverAddress3: $("#receiverAddress3").val(),
+        //productNumber: $("#productNumber").val(),
+        productNumber: $(".goods_table_price_td .individual_productNumber_input").val(),
+        productOrderCount: $(".goods_table_price_td .individual_productOrderCount_input").val(),
+        productName: $("#productName").val(),
+        buyerId: $("#buyerId").val(),
+        amount: finalTotalPriceToAPI,
+    }
+
+/*
+    /!* 상품정보 *!/
     let form_contents = '';
     $(".goods_table_price_td").each(function (index, element) {
         let productNumber = $(element).find(".individual_productNumber_input").val();
@@ -91,20 +108,7 @@ function payment() {
         let productOrderCount_input = "<input name='orderProductList[" + index + "].productOrderCount' type='hidden' value='" + productOrderCount + "'>";
         form_contents += productOrderCount_input;
     });
-
-    /* 정보 */
-    const data = {
-        orderNumber: createOrderNum(),
-        receiverName: $("#buyerName").val(),
-        receiverPhone: $("#receiverPhone").val(),
-        receiverAddress1: $("#receiverAddress1").val(),
-        receiverAddress2: $("#receiverAddress2").val(),
-        receiverAddress3: $("#receiverAddress3").val(),
-        productNumber: $("#productNumber").val(),
-        productName: $("#productName").val(),
-        buyerId: $("#buyerId").val(),
-        amount: finalTotalPriceToAPI,
-    }
+*/
 
     console.log(typeof data.orderNumber)
 
